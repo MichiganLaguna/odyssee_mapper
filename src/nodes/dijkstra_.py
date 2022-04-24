@@ -1,5 +1,4 @@
 # %%
-from file_handling import FILE_, open_csv
 from collections import defaultdict
 
 # MAX_VALUE is the maximum distance between the start and the end of two nodes
@@ -64,12 +63,9 @@ def dijkstra(graph, start):
     return [dist, precedent]
 # %%
 #Function to find the shortest path between two points and return none if they are no path
-def find_shortest_path(start, end, dijkstra_list, file=FILE_, ):
+def find_shortest_path(start, end, precedent):
     shortest_path = []
     s = end
-    precedent = dijkstra_list[1]
-    dist = dijkstra_list[0]
-    del dijkstra_list
     while s != start:
         shortest_path.append(s)
         try:
@@ -77,4 +73,4 @@ def find_shortest_path(start, end, dijkstra_list, file=FILE_, ):
         except KeyError:
             return None
     shortest_path.append(start)
-    return [shortest_path, dist[end]]
+    return shortest_path

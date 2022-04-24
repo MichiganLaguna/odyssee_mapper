@@ -4,3 +4,5 @@ from .file_handling import open_csv
 from .dijkstra_ import find_shortest_path
 from .dijkstra_ import build_graph
 from .dijkstra_ import dijkstra
+from .file_handling import FILE_PATHS
+from .file_handling import FILE_NODES
