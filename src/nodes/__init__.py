@@ -6,3 +6,4 @@ from .dijkstra_ import build_graph
 from .dijkstra_ import dijkstra
 from .file_handling import FILE_PATHS
 from .file_handling import FILE_NODES
+from .file_handling import rem_file
