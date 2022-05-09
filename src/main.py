@@ -102,7 +102,7 @@ class MainWindow(Tk):
 
 class Window(Toplevel):
     def __init__(self, master: MainWindow = None, **kwargs) -> None:
-        super().__init__(self, master, **kwargs)
+        Toplevel.__init__(self, master, **kwargs)
         self.geometry("300x300")
         self.resizable(0, 0)
         self.config(bg="#f25252")

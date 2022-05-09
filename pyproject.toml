@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "Odyssee_Pathfinder"
+version = "0.1.0"
+description = "A small app that shall help you find your path"
+authors = ["MichiganLaguna <michiganlaguna@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/MichiganLaguna/odyssee_mapper"
+packages = [
+    { include = "src" },
+    { include = "src/nodes"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/MichiganLaguna/odyssee_mapper/issues"
