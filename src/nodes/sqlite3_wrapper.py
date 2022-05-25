@@ -112,7 +112,7 @@ class Database:
 
         @see get()"""
 
-        with open(fname, "a", encoding="utf8") as file:
+        with open(fname, "a", encoding="utf-8") as file:
             file.write(",".join([str(j) for i in data for j in i]))
 
     def write(self, table: str, columns: list[tuple], data: list[tuple]) -> None:
@@ -221,10 +221,6 @@ class Database:
         # the sample was assumes the sampling period is 10 minutes
         timing = lambda col: f"{(len(rows) - col) / 6.0:.1f}"
 
-        # return a tuple, consisting of tuples of the maximum,
-        # the minimum and the average for each column and their
-        # respective time (how long ago, in fractions of hours)
-        # average has no time, of course
         ret = []
 
         for col in cols:
