@@ -1,4 +1,5 @@
 .git/
 *.ipynb
 .paths
+*.db
 *.pyc

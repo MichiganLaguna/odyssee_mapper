@@ -115,7 +115,7 @@ class Database:
         with open(fname, "a", encoding="utf-8") as file:
             file.write(",".join([str(j) for i in data for j in i]))
 
-    def write(self, table: str, columns: list[tuple], data: list[tuple]) -> None:
+    def write(self, table: str, columns: list[str], data: list[str]) -> None:
         """Function to write data to the database.
 
         The write() function inserts new data into a table of the database.
@@ -141,7 +141,7 @@ class Database:
             [" ".join([f"{arg}" for arg in column]).lstrip(" ") for column in columns]
         ).lstrip(", ")
 
-        query = f"CREATE TABLE {table}({columns})"
+        query = f"CREATE TABLE IF NOT EXISTS {table}({columns})"
 
         self.cursor.execute(query)
 

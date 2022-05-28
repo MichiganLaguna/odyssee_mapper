@@ -15,16 +15,16 @@ def build_graph(edges: list[list]) -> dict[str, dict[str, int]]:
 
         # Creating the graph as adjacency list
         graph[first_edge][second_edge] = int(lenght)
-        graph[second_edge][first_edge] = int(lenght)
     return graph
 
 
-def init_(graph: dict[str, dict[str, int]], starting_node: str) -> dict[str, int]:
+def init_(edges: list[list], starting_node: str) -> dict[str, int]:
     """Function to initialise a dictionary of distance
     between the starting node and every other node from the graph"""
     dist = {}
-    for node in graph:
-        dist[node] = MAX_VALUE
+    for node in edges:
+        dist[node[0]] = MAX_VALUE
+        dist[node[1]] = MAX_VALUE
     dist[starting_node] = 0
     return dist
 
@@ -49,6 +49,7 @@ def maj_dist_(
 ) -> dict[str, str]:
     """Function wich update the distance of a node to the starting node
     and return a dictionary of nodes and their precedent node."""
+
     if dist[node_2] > dist[node_1] + graph[node_1][node_2]:
         dist[node_2] = dist[node_1] + graph[node_1][node_2]
         precedent[node_2] = node_1
@@ -56,12 +57,12 @@ def maj_dist_(
 
 
 def dijkstra(
-    graph: dict[str, dict[str, int]], start: str
+    graph: dict[str, dict[str, int]], start: str, edges: list[list]
 ) -> list[dict[str, int], dict[str, str]]:
     """Function wich implement the algorithm of dijkstra"""
     precedent = {}
     nodes = list(graph.keys())
-    dist = init_(nodes, start)
+    dist = init_(edges, start)
     while nodes:
         node_1 = find_min_(nodes, dist)
         if node_1 is not None:
